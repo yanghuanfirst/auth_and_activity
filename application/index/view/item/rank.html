@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>排行榜</title>
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+<link href="__STATIC__/index/css/public.css" rel="stylesheet"/>
+<link href="__STATIC__/index/css/rank.css" rel="stylesheet"/>
+<script src="__STATIC__/index/js/jquery-2.1.4.min.js"></script>
+<script src="__STATIC__/layui/layui.js" charset="utf-8"></script>
+<script src="__STATIC__/index/js/index.js"></script>
+</head>
+<body>
+{include file="public/header"}
+	<div class="content-box">
+		<div class="item-box">
+			<h1 class="a-name">{$activity['activity_name']}</h1>
+		</div>
+		<div class="item-box">
+			<div class="item-child">
+				<img src="__STATIC__/index/images/timer.png"/>
+				<span>活动截止时间：{:date('Y-m-d H:i:s',$activity['end_time'])}</span>
+			</div>
+			<div class="item-child">
+				<img src="__STATIC__/index/images/warm.png"/>
+				<span>投票规则，每个微信号每天只能投票一次，并且只能投票一个家庭。</span>
+			</div>
+			<div class="item-child">
+				<h1>最新排名</h1>
+			</div>
+		</div>
+		<div class="item-box">
+			{foreach name="item" item="v" key="k"}
+			<div class="rank-item">
+				<span style="background:{$color[$k]}">第{$k+1}名</span>	
+				<span><a href="{:url('index/item/detail',array('id'=>$v['id']))}">{$v['username']}</a></span>
+				<span>{$v['zan_num']} 票</span>
+			</div>
+			{/foreach}
+		</div>
+	</div>
+
+
+{include file="public/footer"}
+</body>
+</html>
