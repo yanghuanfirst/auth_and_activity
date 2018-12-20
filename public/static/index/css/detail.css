@@ -1,0 +1,28 @@
+@CHARSET "UTF-8";
+.content-box{
+	width:100%;
+	margin-bottom:94px;
+	min-height:600px;
+}
+.item-box{
+	width:90%;
+	margin:0 auto;
+}
+.geted_num{
+	color: red;
+}
+.click-piao{
+	display: flex;
+    width: 120px;
+    height: 30px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    background: #48b9bd;
+	color:#fff;
+	margin-top:15px;
+}
+.click-piao img{
+	margin-right:5px;
+}
+

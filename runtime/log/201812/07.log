@@ -1,0 +1,128 @@
+---------------------------------------------------------------
+[ 2018-12-07T14:45:16+08:00 ] 127.0.0.1 GET www.auth.com/index.php/admin/index
+[运行时间：0.071539s] [吞吐率：13.98req/s] [内存消耗：1,958.78kb] [文件加载：70]
+[ info ] [ LANG ] D:\localhost\auth\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'pgv_pvi=6712046592',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.110 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'www.auth.com',
+)
+[ info ] [ PARAM ] array (
+)
+---------------------------------------------------------------
+[ 2018-12-07T14:45:16+08:00 ] 127.0.0.1 GET www.auth.com/index.php/admin/login/index.html
+[运行时间：0.039122s] [吞吐率：25.56req/s] [内存消耗：1,942.50kb] [文件加载：68]
+[ info ] [ LANG ] D:\localhost\auth\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'pgv_pvi=6712046592; PHPSESSID=c0vh7q1mc6ija1lshgcvi9b8v3',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.110 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'www.auth.com',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ VIEW ] D:\localhost\auth\application\admin\view\login\index.html [ array (
+) ]
+---------------------------------------------------------------
+[ 2018-12-07T14:45:16+08:00 ] 127.0.0.1 GET www.auth.com/index.php/captcha.html?0.8796536069124052
+[运行时间：0.033789s] [吞吐率：29.60req/s] [内存消耗：1,438.49kb] [文件加载：55]
+[ info ] [ LANG ] D:\localhost\auth\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'rule' => 'captcha/<id?>',
+  'route' => '\\think\\captcha\\CaptchaController@index',
+  'option' => 
+  array (
+    'merge_rule_regex' => false,
+  ),
+  'var' => 
+  array (
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'pgv_pvi=6712046592; PHPSESSID=c0vh7q1mc6ija1lshgcvi9b8v3',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.auth.com/index.php/admin/login/index.html',
+  'accept' => 'image/webp,image/apng,image/*,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.110 Safari/537.36',
+  'connection' => 'close',
+  'host' => 'www.auth.com',
+)
+[ info ] [ PARAM ] array (
+  '0_8796536069124052' => '',
+)
+---------------------------------------------------------------
+[ 2018-12-07T14:45:28+08:00 ] 127.0.0.1 POST www.auth.com/index.php/admin/login/login.html
+[运行时间：0.063437s] [吞吐率：15.76req/s] [内存消耗：2,967.40kb] [文件加载：76]
+[ info ] [ LANG ] D:\localhost\auth\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'pgv_pvi=6712046592; PHPSESSID=c0vh7q1mc6ija1lshgcvi9b8v3',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.auth.com/index.php/admin/login/index.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.110 Safari/537.36',
+  'content-type' => 'application/x-www-form-urlencoded',
+  'upgrade-insecure-requests' => '1',
+  'origin' => 'http://www.auth.com',
+  'cache-control' => 'max-age=0',
+  'content-length' => '39',
+  'connection' => 'close',
+  'host' => 'www.auth.com',
+)
+[ info ] [ PARAM ] array (
+  'username' => 'admin',
+  'password' => '888888',
+  'code' => 'qjb',
+)
+[ info ] [ DB ] INIT mysql
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001326s ] mysql:host=127.0.0.1;dbname=auth;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `admin` [ RunTime:0.000966s ]
+[ sql ] [ SQL ] SELECT `id`,`name` FROM `admin` WHERE  `name` = 'admin'  AND `password` = '21218cca77804d2ba1922c33e0151105' LIMIT 1 [ RunTime:0.000526s ]
+---------------------------------------------------------------
+[ 2018-12-07T14:45:28+08:00 ] 127.0.0.1 GET www.auth.com/index.php/
+[运行时间：0.040902s] [吞吐率：24.45req/s] [内存消耗：1,907.70kb] [文件加载：66]
+[ info ] [ LANG ] D:\localhost\auth\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'rule' => '',
+  'route' => 'Index/index',
+  'option' => 
+  array (
+    'merge_rule_regex' => false,
+    'complete_match' => true,
+  ),
+  'var' => 
+  array (
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'pgv_pvi=6712046592; PHPSESSID=c0vh7q1mc6ija1lshgcvi9b8v3',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.auth.com/index.php/admin/login/index.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.110 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'max-age=0',
+  'connection' => 'close',
+  'host' => 'www.auth.com',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ VIEW ] D:\localhost\auth\application\index\view\index\index.html [ array (
+) ]

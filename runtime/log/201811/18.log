@@ -1,0 +1,36 @@
+---------------------------------------------------------------
+[ 2018-11-18T15:27:57+08:00 ] 127.0.0.1 POST www.auth.com/index.php/do_hello.html
+[ error ] [0]语法解析错误: syntax error, unexpected 'print_r' (T_STRING)
+---------------------------------------------------------------
+[ 2018-11-18T15:30:57+08:00 ] 127.0.0.1 POST www.auth.com/index.php/do_hello.html
+[运行时间：0.039790s] [吞吐率：25.13req/s] [内存消耗：1,822.05kb] [文件加载：63]
+[ info ] [ LANG ] D:\localhost\auth\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'rule' => 'do_hello',
+  'route' => 'index/doHello',
+  'option' => 
+  array (
+    'merge_rule_regex' => false,
+  ),
+  'var' => 
+  array (
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.auth.com',
+  'connection' => 'keep-alive',
+  'content-length' => '2057',
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.102 Safari/537.36',
+  'origin' => 'http://www.auth.com',
+  'content-type' => 'multipart/form-data; boundary=----WebKitFormBoundaryzKsdYxEuv0vBoSwT',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://www.auth.com/index.php/index/',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'pgv_pvi=6712046592; PHPSESSID=qfev4abcoe9ke0n7lce2bnmjgh',
+)
+[ info ] [ PARAM ] array (
+  'yang' => 'sdff ',
+)

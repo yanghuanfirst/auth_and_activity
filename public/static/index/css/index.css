@@ -1,0 +1,159 @@
+.content-box{
+	width:100%;
+	margin-bottom: 94px;
+	min-height:600px;
+}
+.logo{
+	width:100%;
+	height:220px;
+}
+.item-box{
+	width:90%;
+	margin:0 auto;
+}
+.title-box{
+	line-height:40px;
+}
+.title-box h2{
+	font-size:20px;
+}
+.ul-box{
+	display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 60px;
+    background: #48b9bd;
+	border-radius: 5px;
+}
+.ul-box li{
+	flex: 1 0 1;
+    width: 33.33%;
+    text-align: center;
+    padding: 6px 0;
+	color:#fff;
+	border-right:1px solid #fff;
+}
+.ul-box li:last-child{
+	border:none;
+}
+.start_time img,.end_time img{
+	margin-right: 5px;
+}
+.start_time,.end_time{
+	height: 40px;
+    display: flex;
+    align-items: center;
+}
+.warm-box{
+	padding:10px 0;
+}
+.jieshao-box{
+	padding: 10px 0;
+	display: flex;
+    align-items: center;
+    height: 28px;
+}
+.jieshao-box span{
+	padding:0 5px;
+}
+.fl{
+	float:left;
+}
+.form-box{
+	width:86%;
+	margin:0 auto;
+}
+.username-box{
+	height: 30px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding-left: 5px;
+	width:100%;
+}
+.sub-box{
+    width: 86px;
+    height: 28px;
+    margin-top: 2px;
+    line-height: 28px;
+    background: #48b9bd;
+    border-radius: 5px;
+    text-align: center;
+    margin-left: 10px;
+}
+.sub-box img{
+	    vertical-align: middle;
+}
+.sub-btn{
+	background: none;
+    color: #fff;
+}
+.paiming-box{
+	padding: 5px 0;
+    text-align: center;
+    background: #48b9bd;
+    border-radius: 5px;
+	margin-top: 5px;
+}
+.paiming-box a{
+	color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.paiming-box a span{
+	margin-left:5px;
+}
+.head-img{
+	width:100%;
+	height:196px;
+}
+.all-item{
+    display: flex;
+    justify-content: flex-start;
+    margin-top: 10px;
+    flex-wrap: wrap;
+}
+.person-box{
+	margin-right:4%;
+	width:48%;
+}
+.person-box:nth-child(even){
+	margin-right:0;
+}
+.info{
+	display: flex;
+    flex-direction: column;
+    line-height: 30px;
+    width: 100%;
+    align-items: center;
+}
+.info span:nth-child(1)
+{
+	color: #48b9bd;
+}
+.info span:nth-child(2)
+{
+	width: 80%;
+    text-align: center;
+    color: #fff;
+    background: #48b9bd;
+    border-radius: 5px;
+}
+.no-data{
+	margin-top: 100px;
+    text-align: center;
+    font-size: 24px;
+    color: #ccc;
+}
+.no-a{
+	margin-top: 200px;
+    text-align: center;
+    font-size: 24px;
+    color: #ccc;
+}
+.desc-box{
+	display:none;
+}
+.totate{
+	transform: rotate(180deg);
+}

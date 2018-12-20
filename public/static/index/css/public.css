@@ -1,0 +1,54 @@
+/*reset*/
+html{max-width: 640px;margin:0 auto;}
+article,aside,dialog,footer,header,section,footer,nav,figure,menu{display:block}
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, figure, section, legend, textarea, p, blockquote, th, td, input, select, textarea, button { margin: 0; padding: 0 }
+body{font:14px/1.4 "Microsoft Yahei",Arial,Helvetica,sans-serif;background-color: #fff;color:#424242;max-width: 640px;margin: 0 auto;}
+h1,h2,h3,h4,h5,h6{font-size:100%;font-weight: normal;}
+table{border-collapse:collapse;border-spacing:0}
+ul,ol,dd,dt,dl{list-style-type:none;}
+a{color:#333;text-decoration: none;-webkit-touch-callout: none;-webkit-user-select: none;}
+a,input,select{-webkit-tap-highlight-color: transparent;-webkit-appearance: none;-moz-appearance: none;-webkit-border-radius: 0;}
+
+input,img{border:none;padding:0;font-size:14px;}
+
+i,em{font-style:normal;}
+:focus{outline: none}
+
+/*iphone6*/
+@media(min-device-width:375px)and(max-device-width:667px)and(-webkit-min-device-pixel-ratio:2){body{font-size:14.5px;}}
+/*iphone6plus*/
+@media(min-device-width:414px) and (max-device-width:736px) and (-webkit-min-device-pixel-ratio:3){body{font-size:15.5px;}}
+
+/*原子类*/
+.clear { clear: both; }
+.clear:after { display: block; clear: both; visibility: hidden; height: 0; overflow: hidden; content: "."; }
+.fl { float: left; }
+.fr { float: right; }
+.mb10{margin-bottom: 10px;}
+.mt10{margin-top: 10px;}
+/*placeholder css*/
+::-moz-placeholder{ font-family: "Microsoft YaHei"} 
+::-webkit-input-placeholder{ font-family: "Microsoft YaHei"} 
+:-ms-input-placeholder{ font-family: "Microsoft YaHei"}
+.header{
+	background: #48b9bd;
+	line-height: 36px;
+    background: #48b9bd;
+	width:100%;
+}
+.header-item{
+    display: flex;
+    align-items: center;
+	color:#fff;
+	width: 68px;
+}
+.header-item img{
+	margin-right:5px;
+}
+.footer{
+	width:100%;
+/* 	position: fixed;   */
+/* 	bottom:0; */
+	text-align:center;
+	margin-top:40px;
+}
