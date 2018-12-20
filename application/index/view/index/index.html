@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>活动名</title>
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+<link href="__STATIC__/index/css/public.css" rel="stylesheet"/>
+<link href="__STATIC__/index/css/index.css" rel="stylesheet"/>
+<script src="http://res.wx.qq.com/open/js/jweixin-1.4.0.js"></script>
+<script src="__STATIC__/index/js/jquery-2.1.4.min.js"></script>
+<script src="__STATIC__/layui/layui.js" charset="utf-8"></script>
+<script src="__STATIC__/index/js/index.js"></script>
+</head>
+<body>
+{notempty name="activity"}
+	<div class="content-box">
+		<div class="logo-box">
+			<img src="__UPLOAD__/{$activity['activity_logo']}" class="logo"/>
+		</div>
+		<div class="item-box">
+			<div class="title-box">
+				<h2>{$activity['activity_name']}</h2>
+			</div>
+			<div class="three-box">
+				<ul class="ul-box">
+					<li>
+						<span>参与家庭</span><br/>
+						<span>{:count($item)}</span>
+					</li>
+					<li>
+						<span>累计投票</span><br/>
+						<span>{$activity['zan_num']}</span>
+					</li>
+					<li>
+						<span>访问次数</span><br/>
+						<span>{$activity['view_num']}</span>
+					</li>
+				</ul>
+			</div>
+			<div class="time-box">
+				<div class="start_time">
+					<img src="__STATIC__/index/images/timer.png"/> 
+					 <span> 开始时间：{:date('Y-m-d H:i:s',$activity['start_time'])}</span>
+				</div>				
+				<div class="end_time">
+					<img src="__STATIC__/index/images/timer.png"/> 
+					 <span> 结束时间：{:date('Y-m-d H:i:s',$activity['end_time'])}</span>
+				</div>	
+				<div class="warm-box">
+					<img src="__STATIC__/index/images/warm.png"/>
+					 <span>投票规则：每个微信只能投一个家庭，只有一次投票机会</span>
+				</div>	
+				<div class="jieshao-box">
+					<img src="__STATIC__/index/images/desc.png"/>
+					<span>活动介绍</span>
+					<img class="show_or_hide_desc" stat = "0" src="__STATIC__/index/images/up.png"/>
+				</div>
+				<div class="desc-box">
+					{$activity['desc']|raw}
+				</div>
+			</div>
+		</div>
+		<div class="item-box" style="height:40px;margin-top:10px">
+			<div class="form-box">
+				<form method="get" action="{:url('index/index')}">
+					<div class="inp-item fl" style="width: 65%;">
+						<input type="text"  class="username-box" name="username" placeholder="请输入参选人姓名"/>
+					</div>
+					<div class="inp-item sub-box fl" >
+						<img src="__STATIC__/index/images/search.png"/>
+						<input type="submit" class="sub-btn" value="搜索"/>
+					</div>
+				</form>
+			</div>
+		</div>
+		<div class="item-box">
+			<div class="paiming-box">
+				<a href="{:url('index/item/rank',array('activity_id'=>$activity['id']))}">
+					<img src="__STATIC__/index/images/paiming.png"/>
+					<span>查看排名</span>
+				</a>
+			</div>
+		</div>
+		<div class="item-box">
+		{notempty name="item"}
+		<div class="all-item">
+		{foreach name="item" item="v" key="k"}
+			<div class="person-box">
+				<a href="{:url('index/item/detail',array('id'=>$v['id']))}"><img class="head-img" src="__UPLOAD__/{$v['item_img']}"/></a>
+				<div class="info">
+					<span>
+						{$v['username']}
+					</span>
+					<span class="click-piao" {notempty name="zan"}is_clicked="1"{/notempty} item_id = "{$v['id']}" activity_id = "{$activity['id']}" {if condition="in_array($v['id'],$zan)"}style="background:#ccc;"{/if}>
+						<img src="__STATIC__/index/images/zan.png"/>
+						投票
+					</span>
+					<span class="piao_num_{$v['id']}">{$v['zan_num']} 票</span>
+				</div>
+			</div>
+		{/foreach}
+		</div>
+		{else/}
+			<div class="no-data">
+				<p>暂无数据</p>
+			</div>
+		{/notempty}
+		</div>
+
+	</div>
+	{else/}
+		<div class="no-a">
+			<p>暂没有活动进行中<p>
+		</div>
+	{/notempty}
+	{include file="public/footer"}
+<script>
+wx.config({
+    debug: true, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+    appId: '{$param["appId"]}', // 必填，公众号的唯一标识
+    timestamp: {$param['param']['timestamp']}, // 必填，生成签名的时间戳
+    nonceStr: '{$param['param']['noncestr']}', // 必填，生成签名的随机串
+    signature: '{$param['sign']}',// 必填，签名
+    jsApiList: ['onMenuShareAppMessage','onMenuShareTimeline'] // 必填，需要使用的JS接口列表
+});
+wx.ready(function () {   //需在用户可能点击分享按钮前就先调用
+	wx.onMenuShareAppMessage({
+	    title: '{$activity['activity_name']}', // 分享标题
+	    desc:'{$activity['activity_name']}',
+	    link: '{$param['param']['url']}', // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+	    imgUrl: '{$activity['share_img']}', // 分享图标
+	    success: function () {
+	    // 用户点击了分享后执行的回调函数
+	}
+});
+	wx.onMenuShareTimeline({
+	    title: '{$activity['activity_name']}', // 分享标题
+	    link: '{$param['param']['url']}', // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+	    imgUrl: '{$activity['share_img']}', // 分享图标
+	    success: function () {
+	    // 用户点击了分享后执行的回调函数
+	},
+});
+});
+</script>
+</body>
+</html>

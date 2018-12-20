@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>参选人详情</title>
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+<link href="__STATIC__/index/css/public.css" rel="stylesheet"/>
+<link href="__STATIC__/index/css/detail.css" rel="stylesheet"/>
+<script src="http://res.wx.qq.com/open/js/jweixin-1.4.0.js"></script>
+<script src="__STATIC__/index/js/jquery-2.1.4.min.js"></script>
+<script src="__STATIC__/layui/layui.js" charset="utf-8"></script>
+<script src="__STATIC__/index/js/index.js"></script>
+</head>
+<body>
+	{include file="public/header"}
+	<div class="content-box">
+		<div class="item-box">
+			{$item['desc']|raw}
+		
+		</div>
+		<div class="item-box">
+			<p class="geted_num">已获得票数：{$item['zan_num']}</p>
+		</div>
+		<div class="item-box">
+			<span {notempty name="zan"}is_clicked="1"{/notempty} class="click-piao"  item_id = "{$item['id']}" activity_id = "{$item['activity_id']}" {if condition="in_array($item['id'],$zan)"}style="background:#ccc;"{/if}>
+				<img src="__STATIC__/index/images/zan.png"/>
+				  投TA一票
+			</span>
+		</div>
+	</div>
+	{include file="public/footer"}
+<script>
+wx.config({
+    debug: true, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+    appId: '{$param["appId"]}', // 必填，公众号的唯一标识
+    timestamp: {$param['param']['timestamp']}, // 必填，生成签名的时间戳
+    nonceStr: '{$param['param']['noncestr']}', // 必填，生成签名的随机串
+    signature: '{$param['sign']}',// 必填，签名
+    jsApiList: ['onMenuShareAppMessage','onMenuShareTimeline'] // 必填，需要使用的JS接口列表
+});
+wx.ready(function () {   //需在用户可能点击分享按钮前就先调用
+	wx.onMenuShareAppMessage({
+	    title: '{$item['title']}', // 分享标题
+	    desc:'{$item['title']}',
+	    link: '{$param['param']['url']}', // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+	    imgUrl: '{$item['share_img']}', // 分享图标
+	    success: function () {
+	    // 用户点击了分享后执行的回调函数
+	}
+});
+	wx.onMenuShareTimeline({
+	    title: '{$item['title']}', // 分享标题
+	    link: '{$param['param']['url']}', // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+	    imgUrl: '{$item['share_img']}', // 分享图标
+	    success: function () {
+	    // 用户点击了分享后执行的回调函数
+	},
+});
+});
+</script>
+</body>
+</html>

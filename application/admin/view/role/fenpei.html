@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <title>layout 后台大布局 - Layui</title>
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black"> 
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="format-detection" content="telephone=no">
+  <link rel="stylesheet" href="__STATIC__/layui/css/layui.css"  media="all">
+  <style>
+	.head-nav{
+		margin-top:20px;
+		margin-left:20px;
+	}
+	.margin20{
+		margin-top:20px;
+	}
+	.layui-form{
+		margin-left:20px;
+	}
+	.layui-input-blocks{
+	    height: 40px;
+	    line-height: 40px;
+	    font-size: 18px;
+	}
+	.layui-input-blocks input{
+		width: 20px;
+	    height: 40px;
+	    vertical-align: top;
+	}
+	.layui-form .layui-input-blocks:nth-child(2),.layui-form .layui-input-blocks:nth-child(3){
+		margin-left:20px;
+	}
+</style>
+</head>
+<body>
+  <div class="head-nav">
+ 		<a class="layui-btn" href="{:url('Role/index')}">角色列表</a>
+ 		<a class="layui-btn layui-btn-normal" href="{:url('Role/add')}">添加角色</a>
+  </div>
+  <div class="margin20">
+  	<form class="layui-form" action="">
+  	{foreach name="rules" item="v" key="kk"}
+		  <div class="layui-form-items">
+		  {if condition="$v['pid'] == 0"}
+		    <div class="layui-input-blocks">
+		    	<input type="checkbox"  title="{$v['controller_action_name']}" value="{$v['id']}" class="role_id_c_{$kk}" name="rule_id[]" lay-filter="head_box" title="" lay-skin="primary" {if condition="in_array($v['id'],$allow_rules)"}checked{/if}> 
+		    </div>
+		  {/if}
+		  {foreach name="v['son']" item="vv"}
+		    <div class="layui-input-blocks">
+		      <input type="checkbox" title="{$vv['controller_action_name']}" value="{$vv['id']}" k_index="{$kk}" class="role_id_c" name="rule_id[]"   title="" lay-skin="primary" {if condition="in_array($vv['id'],$allow_rules)"}checked{/if}> 
+		    </div>
+		     <div class="layui-input-blocks">
+		     {foreach name="vv['son']" item="vvv"}
+		      	<input type="checkbox" title="{$vvv['controller_action_name']}" value="{$vvv['id']}" name="rule_id[]" k_index="{$kk}"  class="rule_id_c"  title="" lay-skin="primary" {if condition="in_array($vvv['id'],$allow_rules)"}checked{/if}> 
+		     {/foreach}
+		    </div>
+		  {/foreach}
+		  </div>
+	{/foreach}
+	<div class="layui-form-items" style="margin-top:60px">
+    <div class="layui-input-block">
+    	<input type="hidden"  value="{:url('Role/doFenpei')}" class="base_url"/>
+    	<input type="hidden"  value="{:url('Role/index')}" class="base_url1"/>
+    	<input type="hidden"  value="{$role_id}" name="r_role_id"/>
+      <button class="layui-btn" lay-submit lay-filter="formFen">立即提交</button>
+    </div>
+  </div>
+	</form>
+ </div>
+  
+<script src="__STATIC__/layui/layui.js" charset="utf-8"></script>
+<script src="__STATIC__/js/jquery-2.1.4.min.js"></script>
+<script src="__STATIC__/js/public.js"></script>
+<script src="__STATIC__/js/role.js"></script>
+</body>
+</html>
